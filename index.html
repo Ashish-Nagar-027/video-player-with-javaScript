@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- ------------------------ -->
+    
+    <link rel="stylesheet" href="./css/style.css">
+    <title>js video player</title>
+</head>
+<body>
+   <!-- header navbar  -->
+   <header>
+    <nav>
+     <img src="./Logo/png/logo-no-background.png" class="logo-img" alt="my-logo">
+     <h1 class="navbar-title">Js Video Player</h1>
+    </nav>
+  </header>
+  <!-- header navbar ends here -->
+
+    <div class="container">
+        <div class="video-container">
+          <!-- video name -->
+          <div class="video-title-name">
+            <p>Marvels </p>
+          </div>
+          <!-- video name ends here-->
+          <video src="./assets/marvel.mp4" id="video" class="video"> </video>
+          <!-- controls here -->
+           <div class="controls">
+             <!-- video progress bar -->
+             <div class="top-bar">
+               <div class="video-range">
+                <input type="range" min="0" max="100" class="video-progress" oninput="videoProgress()" id="">
+              </div>
+             </div>
+             <!--main bottom-controls -->
+             <div class="main-controls">
+            <!-- Right controlls --> 
+            <div class="left-controls">
+              <div class="playBtn-div">
+                  <i class="fa-solid fa-circle-play playBtn"></i>
+              </div>
+              <!-- forward and backword video icons -->
+              <div class="forward-icons-div">
+                  <i id="forward-plus" class="fa-solid fa-rotate-left"></i>
+                  <i id="forward-minus" class="fa-solid fa-rotate-right"></i>
+              </div>
+              <!-- forward and backword video icons ends here -->
+              <!-- video Volume -->
+              <div class="volume-div">
+                  <div class="volume">
+                    <i class="fa-solid fa-volume-high volume-btn"></i>
+                  </div>
+                  <div class="volume-range">
+                    <input type="range" min="0" max="100" class="volume-progress" id="myRange">
+                  </div>
+              </div>
+              <!-- video Volume ends here-->
+               <!-- video time  -->
+            <div class="video-time-div">
+              <p class="video-time-display">00:00/00:00</p>
+            </div>
+            <!-- video time ends here -->
+            </div>
+            <!-- right controls ends here -->
+            <!-- left controls starts here-->
+            <div class="right-controls">
+              <!-- full screen icon  -->
+              <div class="fullscreen-div">
+                <i class="fa-solid fa-expand fullscreen-icon"></i>
+              </div>
+              <!-- picture in picture icon -->
+              <div class="pip">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-picture-in-picture" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <path d="M11 19h-6a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v4" />
+                  <rect x="14" y="14" width="7" height="5" rx="1" />
+                </svg>
+              </div>
+            </div>
+            <!-- left container ends here -->
+           </div>
+           <!-- main-controls -->
+        </div>
+        <!-- controls ends here -->
+     </div>
+     <!-- video container ends here -->
+    </div>
+    <script src="./script/script.js"></script>
+</body>
+</html>
