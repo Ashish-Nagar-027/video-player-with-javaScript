@@ -9,6 +9,8 @@ const videoProgressBar = document.querySelector('.video-progress')
 const volumeProgressBar = document.querySelector('.volume-progress')
 const videoTimeDisplay = document.querySelector('.video-time-display')
 const forwardIconsDiv = document.querySelector('.forward-icons-div')
+const videoControls = document.querySelector('.controls')
+const videoTitleName = document.querySelector('.video-title-name')
 
 
 // =========================================
@@ -46,9 +48,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     volumeProgressBar.style.backgroundImage = `linear-gradient(90deg , red 0%, red 20% , #d3d3d3 20%, #d3d3d3 100% )`
 
-    video.volume = 0.1
+    video.volume = 0.2
 })
 
+
+// auto contros hide and show function
+let timeout ;
+document.addEventListener('mousemove', () => {
+  videoControls.style.opacity = 1
+  videoTitleName.style.opacity = 1
+
+  clearTimeout(timeout)
+  timeout = setTimeout( () => { 
+    videoControls.style.opacity = 0
+    videoTitleName.style.opacity = 0
+  }, 2000);
+})
+
+
+videoContainer.addEventListener('dblclick', viewInFullScreen);
 
 // =========================================
 //           // functions
@@ -81,6 +99,8 @@ function volumePlayPause() {
 
     // volume btn setting
     volumeBtn.classList.contains('fa-volume-high') ? volumeBtn.classList.replace('fa-volume-high', 'fa-volume-xmark') : volumeBtn.classList.replace('fa-volume-xmark', 'fa-volume-high')
+  
+
 }
 
 
@@ -132,10 +152,10 @@ function videoProgress(){
 
 // ForWard and back-forward feature
 function forwardFunction(e) {
- if (e.target.classList.contains('fa-rotate-right')) { 
+ if (e.target.classList.contains('forward-plus')) { 
   video.currentTime = `${Math.floor(((videoProgressBar.value ) /100)*video.duration) + 10}`  
 }
- if (e.target.classList.contains('fa-rotate-left')) { 
+ if (e.target.classList.contains('forward-minus')) { 
   video.currentTime = `${Math.floor(((videoProgressBar.value )/100)*video.duration) - 10}` 
 }
 }
